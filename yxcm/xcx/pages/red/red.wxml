@@ -1,0 +1,53 @@
+<view class="section">
+  <!-- icon开始 -->
+  <view class="flex-wrp" style="flex-direction:row;" style="border-bottom: 1rpx solid #ccc">
+    <view  bindtap="selBor" data-testId="1" class="flex-item {{selIndex==1?'icon-sel':''}}">
+       <image src='../../img/maoyan_32.png' class='icon'></image>
+       <view class="icon-text">淘宝主播</view>
+    </view>
+    <view class="flex-item {{selIndex==2?'icon-sel':''}}" bindtap="selBor" data-testId="2">
+       <image src='../../img/taopiaopiao_32.png' class='icon'></image>
+       <view class="icon-text">淘宝主播</view>
+    </view>
+    <view class="flex-item {{selIndex==3?'icon-sel':''}}" bindtap="selBor" data-testId="3">
+      <image src='../../img/yupiaoer_32.png' class='icon'></image>
+       <view class="icon-text">淘宝主播</view>
+    </view>
+    <view class="flex-item {{selIndex==4?'icon-sel':''}}" bindtap="selBor" data-testId="4">
+      <image src='../../img/douban_32.png' class='icon'></image>
+      <view class="icon-text">淘宝主播</view>
+    </view>
+  </view>
+</view>
+
+<view class="content">
+  <!-- fan选择开始 -->
+  <view class="flex-wrp content-left">
+    <view class="flex-item content-left-text {{fanIndex==1?'sel-fan':''}}" bindtap='selFan' data-fanId="1">粉丝1W~10W</view>
+    <view class="flex-item content-left-text {{fanIndex==2?'sel-fan':''}}" bindtap='selFan' data-fanId="2">粉丝10W~20W</view>
+    <view class="flex-item content-left-text {{fanIndex==3?'sel-fan':''}}" bindtap='selFan' data-fanId="3">粉丝20W~50W</view>
+    <view class="flex-item content-left-text {{fanIndex==4?'sel-fan':''}}" bindtap='selFan' data-fanId="4">粉丝50W~100W</view>
+    <view class="flex-item content-left-text {{fanIndex==5?'sel-fan':''}}" bindtap='selFan' data-fanId="5">粉丝100W</view>
+  </view>
+
+  <!-- wh开始 -->
+  <view class='content-right'>
+     <view class='content-box' wx:if="{{selIndex != 4}}"> 
+      <image src='../../img/wh.png' class='content-img' bindtap='toDetail'></image>
+      <image src='../../img/wh.png' class='content-img'></image>
+      <image src='../../img/wh.png' class='content-img'></image>
+      <image src='../../img/wh.png' class='content-img'></image>
+      <image src='../../img/wh.png' class='content-img'></image>
+      <image src='../../img/wh.png' class='content-img'></image>
+      <image src='../../img/wh.png' class='content-img'></image>
+      <image src='../../img/wh.png' class='content-img'></image>
+      <image src='../../img/wh.png' class='content-img'></image>
+      <image src='../../img/wh.png' class='content-img'></image>
+      <image src='../../img/wh.png' class='content-img'></image>
+      <image src='../../img/wh.png' class='content-img'></image>
+     </view> 
+     <view wx:else class='content-box'>
+      <image src='../../img/xhs.png' class='content-img-xhs'></image>
+     </view> 
+  </view>
+</view>

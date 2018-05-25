@@ -1,0 +1,37 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/index/address/address",
+    "pages/index/wecode/wecode",
+    "pages/index/companyDetail/companyDetail",
+    "pages/activity/activity",
+    "pages/activity/detail/detail",
+    "pages/red/red",
+    "pages/red/detail/detail"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "豆瓣",
+        "selectedIconPath": "img/douban_32.png"
+      },
+      {
+        "pagePath": "pages/activity/activity",
+        "text": "猫眼",
+        "selectedIconPath": "img/maoyan_32.png"
+      },
+      {
+        "pagePath": "pages/red/red",
+        "text": "豆瓣",
+        "selectedIconPath": "img/douban_32.png"
+      }
+    ]
+  }
+}

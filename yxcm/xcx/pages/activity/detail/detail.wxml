@@ -1,0 +1,10 @@
+<view class='section'>
+  <view style='line-height: 66rpx'>
+    <image src='../../../img/al.png' style='width: 100%;height: 400rpx' ></image>
+    <view>
+      <text style='display: block'>合作公司介绍：</text>
+      <text space="true">  rpx（responsive pixel）: 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx。如在 iPhone6 上，屏幕宽度为375px，共有750个物理像素，则750rpx = 375px = 750物理像素，1rpx = 0.5px = 1物理像素。所以用rpx可解决适配问题 </text>
+      <text style='display: block'>达人直播实况：</text>
+    </view>
+  </view>
+</view>

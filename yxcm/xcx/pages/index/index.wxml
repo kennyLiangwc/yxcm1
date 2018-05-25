@@ -1,0 +1,47 @@
+<!--index.wxml-->
+<!--index.wxml-->
+<view class="page page-index ">
+  <swiper indicator-dots="true" indicator-color="rgba(255, 255, 255, .5)" indicator-active-color="#fff" autoplay="true" interval="3000"
+    duration="1000">
+    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="logo">
+    <image src="http://iph.href.lu/270x90" class="logo-pic" />
+  </view>
+  <view class="brief-info" bindtap="goWecode">
+    <view class="content">
+      <image class="pic" src="http://iph.href.lu/90x45" />
+      <view class="txt">扫一扫，直接聊</view>
+    </view>
+  </view>
+  <view class="brief-info" bindtap="callPhone">
+    <view class="content">
+      <image class="pic" src="http://iph.href.lu/90x45" />
+      <view class="txt">13602505028, 13602780886</view>
+    </view>
+  </view>
+  <view class="brief-info" bindtap="goAddress">
+    <view class="content">
+      <image class="pic" src="http://iph.href.lu/90x45" />
+      <view class="txt">深圳市南山区西丽街道松坪山菊苑50栋601</view>
+    </view>
+  </view>
+  <view class="grid-txt">
+    <view class="weui-article" style="padding: 0px 15px;">
+      <view class="weui-article__h1" style="margin-bottom: 5px;font-size: 15px;font-weight: bold;">公司介绍</view>
+      <view class="weui-article__p" style="font-size: 13px; text-indent: 26px;">
+        除了文本节点以外的其他节点都无法长按选中。除了文本节点以外的其他节点都无法长按选中。除了文本节点以外的其他节点都无法长按选中......
+        <text style="font-size: 13px;color: blue" bindtap="goDetails">查看更多</text>
+      </view>
+    </view>
+  </view>
+  <view class="grid-image">
+    <block wx:for="{{grids}}" wx:key="*this">
+      <image class="pic" src="http://iph.href.lu/100x100" />
+    </block>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+<view class="section">
+  <view style='text-align: center;line-height: 70rpx'>
+    <image src='../../img/al.png' style='width: 100%;height: 400rpx' bindtap='toView'></image>
+    <text>雅芳唯品会品牌直播专场</text>
+  </view>
+</view>

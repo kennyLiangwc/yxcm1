@@ -1,0 +1,66 @@
+/**index.wxss**/
+
+.page-index {
+  width: 100%;
+  height: 100%;
+  background-color: #FFFF66;
+}
+
+.page-index .slide-image {
+  width: 750rpx;
+  height: 375rpx;
+  vertical-align: top;
+}
+
+.page-index .logo {
+  margin: 30rpx 0;
+  text-align: center;
+}
+
+.logo .logo-pic {
+  width: 270rpx;
+  height: 90rpx;
+  vertical-align: top;
+}
+
+.page-index .brief-info {
+  margin-bottom: 20rpx;
+}
+
+.brief-info .content {
+  background: #FFF;
+  width: 90%;
+  height: 90rpx;
+  margin: 0 auto;
+  border: 1px solid #eee;
+  border-radius: 10px
+}
+
+.brief-info .content .pic {
+  float: left;
+  width: 180rpx;
+  height: 90rpx;
+  vertical-align: top;
+}
+
+.brief-info .content .txt {
+  text-align: center;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 11px;
+}
+
+.page-index .grid-image {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.grid-image .pic {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 30rpx;
+}
