@@ -5,20 +5,7 @@ import Bundle from "../components/Bundle"
 import menu from "../common/menu"
 
 
-let routes = menu.getRouteList();		//获取路由列表
-
-
-
-
-// const AuthRoute = ({component: COM, ...rest}) => {
-// 	if(arr.includes(rest.path)) {
-// 		return <Route {...rest} render={(props) => <COM {...props} />} />
-// 	}else {
-// 		alert("没有权限");
-// 		window.history.back();
-// 		return <div />
-// 	}
-// }
+let routes = menu.getRouteList();		//获取路由列表s
 
 
 // 每次根据url异步加载对应的组件

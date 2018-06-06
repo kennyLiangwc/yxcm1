@@ -1,14 +1,9 @@
 import util from "./util"
-import StaticCommonConst from "./StaticCommonConst"
-import CSRFToken from "./CSRFToken"
-import { GraphQLClient } from "graphql-request"
 import ui from "./ui"
 import CryptoJS from "crypto-js"
 import { accessKey, secretKey } from "./UploadKey"
 
-const sessionId = util.getCookie(StaticCommonConst.COOKIE_NAMES.MIS.SESSION_ID);
-const gtk = CSRFToken(sessionId);
-const JwtToken = util.getCookie(StaticCommonConst.COOKIE_NAMES.MIS.JWT_TOKEN_NAME);
+
 
 let loading = document.getElementById("loading");
 function showLoading(needLoading) {
@@ -16,44 +11,50 @@ function showLoading(needLoading) {
     else loading.style.display = "none";
 }
 
-const client = new GraphQLClient('/api/mis', {
-    headers: {
-        Authorization: JwtToken,
-        gtk
-    }
-});
 
 let http = {};
 
 showLoading(false);
-http.post = function(action,params,needLoading = true) {
-    showLoading(needLoading);
-    return new Promise((reslove,reject) => {
-        client.request(action,params).then(data => {
-                reslove(data);
-                showLoading(false)
-        }).catch(error => {
-            let _errors = JSON.parse(JSON.stringify(error));
-            const { errors } = _errors.response;
-            showLoading(false);
-            if(errors && errors.length > 0) {
-                try {
-                    let message = JSON.parse(errors[0].message);
-                    console.log("RetMsgMap",StaticCommonConst.RetMsgMap)
-                    if(message.ret == -3) {      //未登录
-                        // ui.toast("error","请重新登录");
-                        window.location.replace("#/login")
-                    }else{    
-                        ui.toast("error",message.msg);
-                    }
-                } catch (error) {
-                    console.log("error1",error);
-                    ui.toast("error",error.message);
+http.post = function (action, params = {}, needLoading = true, showError = true) {
+    return new Promise(function (resolve, reject) {
+        showLoading(needLoading);
+        let xhr = new XMLHttpRequest();
+        xhr.timeout = 30000;
+        xhr.open('POST', ` https://qydata.club/yxserver/${action}`);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                let json = JSON.parse(xhr.responseText);
+                if (json.result != 0) {
+                    reject(json)
+                } else {
+                    json.data = json.data || {};
+                    resolve(json.data);
                 }
+            } else {
+                // 处理其他情况
+                console.error(arguments);
+                showError && ui.toast('error', '操作失败');
+                reject()
             }
-        })
-    })
-}
+            showLoading(false);
+        };
+        xhr.onerror = function () {
+            // 处理错误
+            console.error('http error', arguments);
+            showError && ui.toast('error', '操作失败');
+            reject();
+            showLoading(false);
+        };
+        xhr.ontimeout = function (e) {
+            showError && ui.toast('error', '请求超时');
+            showLoading(false);
+            reject();
+            console.log('timeout', e)
+        };
+        let sendData = JSON.stringify(params);
+        xhr.send(sendData);
+    });
+};
 
 /**
  * 生成uptoken

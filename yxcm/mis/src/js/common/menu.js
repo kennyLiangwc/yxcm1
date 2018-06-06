@@ -40,7 +40,7 @@ let MenuMap = {
             id: "role",
             children: [
                 {
-                    id: "RoleList",
+                    id: "AnchorList",
                     text: "网红列表",
                     path: "/app/anchor/anchorList",
                     isMenu: true,
@@ -93,14 +93,34 @@ let MenuMap = {
             ]
         },
         {
-            text: "上传图片",
+            text: "活动列表",
             icon: "code",
-            id: "upload",
+            id: "active",
             children: [
                 {
-                    id: "InviteList",
-                    text: "上传",
-                    path: "/app/upload/upload",
+                    id: "Active",
+                    text: "活动列表",
+                    path: "/app/active/active",
+                    isMenu: true,
+                    exact: true,
+                    contain: [
+
+                    ]
+                },
+                {
+                    id: "EditActive",
+                    text: "编辑活动",
+                    path: "/app/active/editActive/:id",
+                    isMenu: false,
+                    exact: true,
+                    contain: [
+
+                    ]
+                },
+                {
+                    id: "AddActive",
+                    text: "新增活动",
+                    path: "/app/active/addActive",
                     isMenu: true,
                     exact: true,
                     contain: [

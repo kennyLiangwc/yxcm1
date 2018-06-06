@@ -30,7 +30,7 @@ class App extends Component {
                         <Routes />
                     </Content>
                     <Footer style={{ textAlign: 'center' }}>
-                        互联网+影视管理平台 ©2018 Created by 腾讯影业
+                        互联网+网红控制台 ©2018 Created by Liang
                     </Footer>
                 </Layout>
             

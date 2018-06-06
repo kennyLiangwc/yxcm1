@@ -6,8 +6,6 @@ const renderMenuItem =  (
 	({id,text,path,contain,isMenu,...props}) => 
 	isMenu ?<Menu.Item
 			key={path || id}
-			{...props}
-
 		>
 			<Link to={path}>{text}</Link>
 		</Menu.Item> : ""

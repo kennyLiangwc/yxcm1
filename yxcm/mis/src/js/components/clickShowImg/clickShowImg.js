@@ -7,15 +7,14 @@ export default class ClickShowImg extends Component {
 		style = Object.assign(style,{
 			cursor: "pointer"
 		})
-		let realPath = util.dealPicUrl0(src, 0);
         if (!isImg) {
-            return <a href={realPath} target="blank">查看图片</a>
+            return <a href={src} target="blank">查看图片</a>
         }
-		return <img src={util.dealPicUrl0(src, 180)} style={style} className={className} onClick={this.onClick(src)}/>
+		return <img src={src} style={style} className={className} onClick={this.onClick(src)}/>
 	}
 	onClick(src) {
 		return function () {
-            window.open(util.dealPicUrl0(src, 0))
+            window.open(src)
         }
 	}
 }
