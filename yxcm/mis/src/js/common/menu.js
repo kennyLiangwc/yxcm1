@@ -3,41 +3,9 @@ import { rule } from "postcss";
 let MenuMap = {
     role: [
         {
-            text: "用户管理",
-            icon: "idcard",
-            id: "user",
-            children: [
-                {
-                    id: "UserList",
-                    text: "用户列表",
-                    path: "/app/user/userList",
-                    isMenu: true,
-                    exact: true,
-                    contain: [
-                        {
-                            path: "queryUserList",
-                            name: "查询用户列表"
-                        },
-                        {
-                            path: "queryUserRoles",
-                            name: "查询用户角色"
-                        },
-                        {
-                            path: "updateUserRole",
-                            name: "修改用户角色"
-                        },
-                        {
-                            path: "getMyUserData",
-                            name: "查询个人信息"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             text: "网红管理",
-            icon: "user",
-            id: "role",
+            icon: "idcard",
+            id: "anchor",
             children: [
                 {
                     id: "AnchorList",

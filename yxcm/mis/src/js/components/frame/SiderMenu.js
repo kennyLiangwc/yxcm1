@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Menu, Icon } from 'antd';
 import { Link } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ const renderMenuItem =  (
 )
 
 const renderSubMenu = (
-	({text,icon,id,children,isMenu,...props}) => 
+	({text,icon,id,children,...props}) => 
 		<Menu.SubMenu 
 			key={id}
 			{...props}

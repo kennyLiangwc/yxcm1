@@ -33,7 +33,6 @@ class AnchorList extends Component {
         total: 10
     }
     del = (item) => {
-        console.log(item)
         http.post("back/anchor/update/",{
             auto_id: item.auto_id,
             is_delete: 1

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import BreadCrumb from "../../components/breadcrumb/BreadcrumbCustom"
-import { Card, Table, Button, Popconfirm } from "antd"
+import { Card, Table, Button, Popconfirm, message } from "antd"
 import { withRouter } from "react-router-dom"
 import util from "../../../utils/util"
 import http from "../../../utils/http"
@@ -34,7 +34,13 @@ class Active extends Component {
     	this.props.history.push(`/app/active/editActive/${item.auto_id}`)
     }
     del = item => {
-    	
+    	http.post("back/activity/update/",{
+            auto_id: item.auto_id,
+            is_delete: 1
+        }).then(() => {
+            message.success("删除成功");
+            this.queryActive()    
+        })
     }
 	render() {
 		const { list } = this.state;
@@ -68,16 +74,23 @@ class Active extends Component {
             {
         		title: "活动图片",
         		dataIndex: "imgs_url",
-        		render:(text,{imgs}) => (
-        			{
-        				//imgs.map((item,index) => (
-        					//imgs.map((item,index) => (
-        						//<ClickShowImg src={item} key={index} />
-							//))
-    					//)
-        			}
-    			)
+        		render:(text,record) => {
+                    return <div>
+                        {
+                            record.imgs_url.map((item,index) => {
+                                return <ClickShowImg src={item} key={index}/>  
+                            })
+                        }
+                    </div>
+                }
         	},
+            {
+                title: "视频源",
+                dataIndex: "video_url",
+                render:(text,record) => (
+                    <span className={record.video_url ? "green" : "red"}>{record.video_url ? "有" : "无"}</span>
+                )
+            },
             {
             	title: "操作",
             	dataIndex: "id",
@@ -85,7 +98,7 @@ class Active extends Component {
         			<div>
         				<Button onClick={() => this.editAcitve(record)}>编辑</Button>
         				<Popconfirm title="确定要删除吗?" onConfirm={() => this.del(record)}>
-                            <a className="red">删除</a>
+                            <a className="red m-l-10">删除</a>
                         </Popconfirm>
         			</div>
     			)

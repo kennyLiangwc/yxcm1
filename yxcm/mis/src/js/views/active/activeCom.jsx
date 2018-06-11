@@ -12,13 +12,23 @@ const { TextArea } = Input;
 const ActiveComForm = Form.create()(class ActiveCom extends Component {
 	constructor(props) {
 		super(props);
-		let editActive = {};
-		if(this.props.id) editActive = util.data("editActive");
+		let editActive = {}, fileList = [];;
+		if(this.props.id) {
+            editActive = util.data("editActive");
+            editActive.imgs_url.map((item,index) => {
+                fileList.push({
+                    uid: item,
+                    name: item,
+                    url: item
+                })    
+            })
+        }
+        console.log("fileList",fileList)
 		this.state = {
 			name: editActive.name || "",
 			video_url: editActive.video_url || "",
 			intro: editActive.intro || "",
-			fileList: editActive.imgs_url || [],
+			fileList: fileList || [],
 			token: token,
 			previewVisible: false,
 			previewImage: ""
@@ -30,16 +40,20 @@ const ActiveComForm = Form.create()(class ActiveCom extends Component {
             if(!err) {
                 const { video_url, fileList } = this.state;
                 let imgs_url = [], params, relate_type;
-                fileList.map(({response}) => {
-                	imgs_url.push(`http://p94d2qxd7.bkt.clouddn.com/${response.key}`)
+                fileList.map((item) => {
+                    if(item.response) imgs_url.push(`http://p94d2qxd7.bkt.clouddn.com/${item.response.key}`)
+                	else imgs_url.push(item.url)
             	});
                 params = Object.assign({},values,{
             		imgs_url,
             		video_url 	
             	});
-            	
         		if(this.props.id) {
-        			
+        			http.post("back/activity/add/",Object.assign({},params,{
+                        auto_id: this.props.id
+                    })).then(() => {
+                        this.props.history.push("/app/active/active")   
+                    })
         		}else {
         			http.post("back/activity/add/",params).then(() => {
             			this.props.history.push("/app/active/active")	
@@ -114,7 +128,8 @@ const ActiveComForm = Form.create()(class ActiveCom extends Component {
 			<FormItem
 				label="活动图片"
 			>
-				<Upload
+                
+                <Upload
                     action="//up-z2.qiniup.com"
                     listType="picture-card"
                     fileList={fileList}

@@ -11,7 +11,7 @@ const Test = () => (
 export default () => (
 	<HashRouter>
 		<Switch>
-			<Route exact path="/" render={() => <Redirect to="/app/user/userList" />}></Route>
+			<Route exact path="/" render={() => <Redirect to="/app/anchor/anchorList" />}></Route>
 			<Route path="/app" component={App}></Route>
 			<Route path="/login" component={Login}></Route>
 			<Route path="/404" component={NotFound}></Route>

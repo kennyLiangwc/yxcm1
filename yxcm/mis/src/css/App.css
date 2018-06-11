@@ -35,7 +35,9 @@
 .blue {
   color: #1890ff;
 }
-
+.m-l-10 {
+    margin-left: 10px;
+}
 .logo {
   width: 90%;
   height: 31px;
@@ -162,4 +164,3 @@
       }
     
   }
-  

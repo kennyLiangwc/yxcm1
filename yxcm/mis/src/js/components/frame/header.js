@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { Col, Icon, Layout } from "antd"
+import http from "../../../utils/http.js"
+import { Col, message, Icon, Layout } from "antd"
 import { withRouter } from "react-router-dom"
+import menu from "../../common/menu"
 const { Header } = Layout;
 class Header1 extends Component {
     constructor(props) {
@@ -10,11 +12,7 @@ class Header1 extends Component {
             nickImg: ""
         }
     }
-    queryUserInfo() {
-
-    }
     componentWillMount() {
-        this.queryUserInfo();
     }
     render() {
         return(
