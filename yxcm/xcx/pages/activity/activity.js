@@ -1,15 +1,16 @@
 
 Page({
-
   data: {
-
+    list: []
   },
-  toView() {
-    wx.navigateTo({
-      url: "/pages/activity/detail/detail?id=1"
-    })
+  toView(item) {
+    console.log(item)
+    // wx.navigateTo({
+    //   url: "/pages/activity/detail/detail?id=1"
+    // })
   },
-  onReady() {
+  queryActivit() {
+    const self = this;
     wx.request({
       url: 'https://qydata.club/yxserver/api/activity/',
       data: {
@@ -20,8 +21,13 @@ Page({
         'content-type': 'application/json'
       },
       success(res) {
-        console.log(res)
+        self.setData({
+          list: res.data.data.activitys
+        })
       }
     })
+  },
+  onLoad() {
+    this.queryActivit()
   }
 })
