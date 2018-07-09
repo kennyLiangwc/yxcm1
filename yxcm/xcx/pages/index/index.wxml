@@ -10,31 +10,31 @@
     </block>
   </swiper>
   <view class="logo">
-    <image src="http://iph.href.lu/270x90" class="logo-pic" />
+    <image src="../../img/首页logo.png" class="logo-pic" />
   </view>
   <view class="brief-info" bindtap="goWecode">
     <view class="content">
-      <image class="pic" src="http://iph.href.lu/90x45" />
+      <image class="pic" src="../../img/二维码.png" />
       <view class="txt">扫一扫，直接聊</view>
     </view>
   </view>
   <view class="brief-info" bindtap="callPhone">
     <view class="content">
-      <image class="pic" src="http://iph.href.lu/90x45" />
-      <view class="txt">13602505028, 13602780886</view>
+      <image class="pic" src="../../img/tel.png" />
+      <view class="txt">020-86460283</view>
     </view>
   </view>
   <view class="brief-info" bindtap="goAddress">
     <view class="content">
-      <image class="pic" src="http://iph.href.lu/90x45" />
-      <view class="txt">深圳市南山区西丽街道松坪山菊苑50栋601</view>
+      <image class="pic" src="../../img/add.png" />
+      <view class="txt">广州市天河区晨邮路12号华景里理想地</view>
     </view>
   </view>
   <view class="grid-txt">
     <view class="weui-article" style="padding: 0px 15px;">
       <view class="weui-article__h1" style="margin-bottom: 5px;font-size: 15px;font-weight: bold;">公司介绍</view>
       <view class="weui-article__p" style="font-size: 13px; text-indent: 26px;">
-        除了文本节点以外的其他节点都无法长按选中。除了文本节点以外的其他节点都无法长按选中。除了文本节点以外的其他节点都无法长按选中......
+        广州印象文化传媒有限公司是一家集网红直播、短视频制作、内容营销、明星经纪于一体的新媒体时尚娱乐营销机构。创意广告策划及强大的娱乐传播渠道， 构建成多维立体的营销体系，始终专注于品牌红人营销。
         <text style="font-size: 13px;color: blue" bindtap="goDetails">查看更多</text>
       </view>
     </view>

@@ -19,17 +19,17 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "豆瓣",
-        "selectedIconPath": "img/douban_32.png"
+        "text": "主页",
+        "selectedIconPath": "img/主页.png"
       },
       {
         "pagePath": "pages/activity/activity",
-        "text": "猫眼",
-        "selectedIconPath": "img/maoyan_32.png"
+        "text": "案列介绍",
+        "selectedIconPath": "img/业务.png"
       },
       {
         "pagePath": "pages/red/red",
-        "text": "豆瓣",
+        "text": "网络达人",
         "selectedIconPath": "img/douban_32.png"
       }
     ]

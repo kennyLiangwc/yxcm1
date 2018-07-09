@@ -5,11 +5,11 @@ Page({
   data: {
     indicator: true,
     imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'
+      'http://p94d2qxd7.bkt.clouddn.com/lb-7-7-1.png',
+      'http://p94d2qxd7.bkt.clouddn.com/lb-7-7-2.png',
+      'http://p94d2qxd7.bkt.clouddn.com/lb-7-7-3.png',
+      'http://p94d2qxd7.bkt.clouddn.com/lb-7-7-4.png',
+      'http://p94d2qxd7.bkt.clouddn.com/lb-7-7-5.png'
     ],
     grids: [0, 1, 2, 3, 4, 5]
   },
@@ -30,13 +30,7 @@ Page({
   // 拨打电话
   callPhone() {
     wx.makePhoneCall({
-      phoneNumber: '13602505028',
-      success: function () {
-        console.log("拨打电话成功！")
-      },
-      fail: function () {
-        console.log("拨打电话失败！")
-      }
+      phoneNumber: '13602505028'
     })
   },
 

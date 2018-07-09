@@ -2,20 +2,20 @@
   <!-- icon开始 -->
   <view class="flex-wrp" style="flex-direction:row;" style="border-bottom: 1rpx solid #ccc">
     <view  bindtap="selBor" data-testId="1" class="flex-item {{selIndex==1?'icon-sel':''}}">
-       <image src='../../img/maoyan_32.png' class='icon'></image>
+       <image src='../../img/淘宝.jpg' class='icon'></image>
        <view class="icon-text">淘宝主播</view>
     </view>
     <view class="flex-item {{selIndex==2?'icon-sel':''}}" bindtap="selBor" data-testId="2">
-       <image src='../../img/taopiaopiao_32.png' class='icon'></image>
-       <view class="icon-text">淘宝主播</view>
+       <image src='../../img/微博.jpg' class='icon'></image>
+       <view class="icon-text">微博主播</view>
     </view>
     <view class="flex-item {{selIndex==3?'icon-sel':''}}" bindtap="selBor" data-testId="3">
-      <image src='../../img/yupiaoer_32.png' class='icon'></image>
-       <view class="icon-text">淘宝主播</view>
+      <image src='../../img/抖音.png' class='icon'></image>
+       <view class="icon-text">抖音主播</view>
     </view>
     <view class="flex-item {{selIndex==4?'icon-sel':''}}" bindtap="selBor" data-testId="4">
-      <image src='../../img/douban_32.png' class='icon'></image>
-      <view class="icon-text">淘宝主播</view>
+      <image src='../../img/小红书.jpeg' class='icon'></image>
+      <view class="icon-text">小红书主播</view>
     </view>
   </view>
 </view>

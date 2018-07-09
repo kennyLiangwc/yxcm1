@@ -1,18 +1,3 @@
-<view class="page">
-	<view class="page__bd">
-		<view class="weui-tab">
-			<view class="weui-navbar">
-				<block wx:for="{{tabs}}" wx:key="*this">
-					<view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
-						<view class="weui-navbar__title">{{item}}</view>
-					</view>
-				</block>
-				<view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
-			</view>
-			<view class="weui-tab__panel">
-				<view class="weui-tab__content" hidden="{{activeIndex != 0}}">选项一的内容</view>
-				<view class="weui-tab__content" hidden="{{activeIndex != 1}}">选项二的内容</view>
-			</view>
-		</view>
-	</view>
-</view>
+<!--pages/index/componyDetail/componyDetail.wxml-->
+<text>印象传媒拥有一支年轻的全面综合红人策划专业团队，始终活跃在中国品牌红人营销最前线，致力于做中国最优秀的一站式品牌红人营销服务中心， 印象传媒用智慧和汗水形成的是一种品牌红人营销综合能力：以专业知识人才组成的稳定团 队，品牌传播通道优化组合，以精准市场定位和核心竞争力发挥为基础的实用品牌红人策略，不断追求创意化、创新化、创造化的品牌红人营销模式。把品牌力以红人营销的模式转化为商品力和销售力，以性价比最高的方式为客户有效精确打造和传播品牌，以客户的结果做结果，为客户提供最优质的品牌红人营销服务。
+</text>

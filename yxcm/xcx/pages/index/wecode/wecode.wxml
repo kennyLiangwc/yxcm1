@@ -1,4 +1,4 @@
 <!--index.wxml-->
 <view class="page">
-123
+<image src="../../../img/二维码.png"></image>
 </view>
