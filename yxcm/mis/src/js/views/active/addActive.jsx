@@ -6,7 +6,7 @@ import { Card } from "antd"
 export default class AddActive extends Component {
 	render() {
 		return <div>
-			<BreadcrumbCustom first="新增网红" />
+			<BreadcrumbCustom first="新增活动" />
 			<Card >
 				<ActiveCom />
 			</Card>

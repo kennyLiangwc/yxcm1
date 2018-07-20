@@ -1,12 +1,74 @@
 import React, { Component } from "react"
 import http from "../../../utils/http"
-import { Table, Row, Card, Form, Input, Button, Modal, Checkbox, message, Popconfirm } from "antd";
+import { Table, Row, Card, Form, Input, Button, Modal, Checkbox, message, Popconfirm, Select } from "antd";
 import BreadcrumbCustom from "../../components/breadcrumb/BreadcrumbCustom.jsx";
 import Sex from "../../common/enums/Sex.js"
 import PlatformType from "../../common/enums/PlatformType"
 import util from "../../../utils/util"
 import { withRouter } from "react-router-dom"
 import ClickShowImg from "../../components/clickShowImg/clickShowImg"
+
+const FormItem = Form.Item;
+const Option = Select.Option;
+
+const AnchorForm = Form.create()(class a extends Component {
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.form.validateFields((err, values) => {
+            if (!err) {
+                console.log(values)
+            }
+        });
+    }
+    render() {
+        const { getFieldDecorator } = this.props.form;
+        return(
+            <Form
+            layout="inline"
+            onSubmit={this.handleSubmit}
+            >
+                <FormItem
+                    label="网红名称"
+                >
+                    {
+                        getFieldDecorator('name')(<Input />)
+                    }
+                </FormItem>
+                <FormItem
+                    label="平台"
+                >
+                    {
+                        getFieldDecorator('platform')(<Select style={{width: "80px"}}>
+                        <Option value="">请选择</Option>
+                        <Option value="0">淘宝</Option>
+                        <Option value="1">微博</Option>
+                        <Option value="2">抖音</Option>
+                        <Option value="3">小红书</Option>
+                    </Select>)
+                    }
+                </FormItem>
+                <FormItem
+                    label="粉丝数"
+                >
+                    <Row>
+                        {
+                            getFieldDecorator('start_fans_num')(<Input style={{width: "50px"}}/>)
+                        }
+                        <span>~</span>
+                        {
+                            getFieldDecorator('end_fans_num')(<Input style={{width: "50px"}}/>)
+                        }
+                    </Row>
+                </FormItem>
+                <FormItem>
+                    <Button type="primary" htmlType="submit">查询</Button>
+                    <Button>清空</Button>
+                </FormItem>
+            </Form>
+        )
+    }    
+})
+
 
 class AnchorList extends Component {
     state = {
@@ -21,16 +83,16 @@ class AnchorList extends Component {
             page: pageNumber,
 			page_size: pageSize
 		}).then(data => {
+            this.page.total = data.total;   
             this.setState({
                 list: data.auctions
             })
-            this.page.total = data.total
 		})
 	}
     page = {
         pageNumber: 1,
         pageSize: 10,
-        total: 10
+        total: 0
     }
     del = (item) => {
         http.post("back/anchor/update/",{
@@ -51,15 +113,14 @@ class AnchorList extends Component {
             total: this.page.total,
             current: this.page.pageNumber,
             pageSize: this.page.pageSize,
-            showSizeChanger: true,
             onShowSizeChange: (pageNumber, pageSize) => {
                 this.page.pageSize = pageSize;
                 this.page.pageNumber = pageNumber;
-                this.pageQuery()
+                this.queryAnchorList()
             },
             onChange: (pageNumber) => {
                 this.page.pageNumber = pageNumber;
-                this.pageQuery()
+                this.queryAnchorList()
             }
         }
         const columns = [
@@ -123,6 +184,7 @@ class AnchorList extends Component {
         ]
 		return <div>
             <BreadcrumbCustom first="网红列表"/>
+            <AnchorForm />
             <Card>
                 <Table pagination={pagination} dataSource={list} columns={columns} rowKey="id"/>
             </Card>

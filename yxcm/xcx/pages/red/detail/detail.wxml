@@ -1,14 +1,14 @@
 <view class='section'>
-  <image src='../../../img/detail.png' style='width: 100%;height: 400rpx'></image>
-  <view>
+  <image src='{{whDetail.cover_url}}' style='width: 100%;height: 560rpx'></image>
+  <view style="padding: 1%">
     <text>主播简介</text>
     <view style='padding: 20rpx;line-height: 66rpx'>
-      <text style='display: block'>主播昵称昵称：xxx</text>
-      <text style='display: block'>性别: 女</text>
-      <text style='display: block'>粉丝：14.8w</text>
-      <text style='display: block'>等级：</text>
-      <text style='display: block'>标签：
-        <text>彩妆控控、摄影师</text>
+      <text style='display: block'>主播昵称昵称：{{whDetail.nickname}}</text>
+      <text style='display: block'>性别: {{whDetail.sex == 0 ? '女' : '男'}}</text>
+      <text style='display: block'>粉丝：{{whDetail.fans_num}}</text>
+      <text >等级：</text>
+      <text style='display: block'>
+        标签：{{whDetail.tags}}
       </text>
       <text style='display: block' selectable="true">复制浏览器</text>
     </view>

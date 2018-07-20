@@ -1,5 +1,9 @@
 Page({
   onLoad(options) {
-    console.log(options)
+    let item = wx.getStorageSync('activity');
+    console.log("iem",item)
+    this.setData({
+      whDetail: item
+    })
   }
 })

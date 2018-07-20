@@ -1,5 +1,11 @@
 Page({
+  data: {
+    whDetail: ""
+  },
   onLoad(options) {
-    console.log(options)
+    let item = wx.getStorageSync('wh');
+    this.setData({
+      whDetail: item
+    })
   }
 })

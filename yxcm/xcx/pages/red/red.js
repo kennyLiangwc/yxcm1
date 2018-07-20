@@ -5,8 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    list: [],
     selIndex: 0,
-    fanIndex: 0
+    fanIndex: 0,
+    platform: 0,
+    start_fans_num: 0,
+    end_fans_num: 10000000
   },
 
   /**
@@ -23,37 +27,56 @@ Page({
   selBor(event) {
     let index = event.currentTarget.dataset.testid;
     this.setData({
-      selIndex: index,
+      platform: index,
       list: []
     })
+    this.query()
   },
   selFan(event) {
     let index = event.currentTarget.dataset.fanid;
     this.setData({
       fanIndex: index
-    })
+    });
+    
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  query() {
     const self = this;
+    const { platform} = this.data;
     wx.request({
       url: 'https://qydata.club/yxserver/api/anchor/',
       data: {
         "page": 1,
-        "page_size": 20
+        "page_size": 20,
+        platform: platform
       },
       header: {
         'content-type': 'application/json' // 默认值
       },
-      success(data) {
-        let whList = data.data.auctions;
+      success(res) {
+        let whList = res.data.data.auctions;
         self.setData({
           list: whList
         })
       }
     })
+  },
+  voView(event) {
+    let index = event.currentTarget.dataset.whid;
+    const item = this.data.list[index];
+    try {
+        wx.setStorageSync('wh', item);
+        wx.navigateTo({
+          url: `/pages/red/detail/detail?${index}`
+        })
+    } catch (e) {
+
+    }
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    this.query()
   },
 
   /**

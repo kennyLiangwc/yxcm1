@@ -1,19 +1,19 @@
 <view class="section">
   <!-- icon开始 -->
   <view class="flex-wrp" style="flex-direction:row;" style="border-bottom: 1rpx solid #ccc">
-    <view  bindtap="selBor" data-testId="1" class="flex-item {{selIndex==1?'icon-sel':''}}">
+    <view  bindtap="selBor" data-testId="0" class="flex-item {{platform==0?'icon-sel':''}}">
        <image src='../../img/淘宝.jpg' class='icon'></image>
        <view class="icon-text">淘宝主播</view>
     </view>
-    <view class="flex-item {{selIndex==2?'icon-sel':''}}" bindtap="selBor" data-testId="2">
+    <view class="flex-item {{platform==1?'icon-sel':''}}" bindtap="selBor" data-testId="1">
        <image src='../../img/微博.jpg' class='icon'></image>
        <view class="icon-text">微博主播</view>
     </view>
-    <view class="flex-item {{selIndex==3?'icon-sel':''}}" bindtap="selBor" data-testId="3">
+    <view class="flex-item {{platform==2?'icon-sel':''}}" bindtap="selBor" data-testId="2">
       <image src='../../img/抖音.png' class='icon'></image>
        <view class="icon-text">抖音主播</view>
     </view>
-    <view class="flex-item {{selIndex==4?'icon-sel':''}}" bindtap="selBor" data-testId="4">
+    <view class="flex-item {{platform==3?'icon-sel':''}}" bindtap="selBor" data-testId="3">
       <image src='../../img/小红书.jpeg' class='icon'></image>
       <view class="icon-text">小红书主播</view>
     </view>
@@ -32,22 +32,8 @@
 
   <!-- wh开始 -->
   <view class='content-right'>
-     <view class='content-box' wx:if="{{selIndex != 4}}"> 
-      <image src='../../img/wh.png' class='content-img' bindtap='toDetail'></image>
-      <image src='../../img/wh.png' class='content-img'></image>
-      <image src='../../img/wh.png' class='content-img'></image>
-      <image src='../../img/wh.png' class='content-img'></image>
-      <image src='../../img/wh.png' class='content-img'></image>
-      <image src='../../img/wh.png' class='content-img'></image>
-      <image src='../../img/wh.png' class='content-img'></image>
-      <image src='../../img/wh.png' class='content-img'></image>
-      <image src='../../img/wh.png' class='content-img'></image>
-      <image src='../../img/wh.png' class='content-img'></image>
-      <image src='../../img/wh.png' class='content-img'></image>
-      <image src='../../img/wh.png' class='content-img'></image>
-     </view> 
-     <view wx:else class='content-box'>
-      <image src='../../img/xhs.png' class='content-img-xhs'></image>
-     </view> 
+     <view class='content-box'>
+      <image  wx:for="{{list}}" wx:key="index" src="{{item.cover_url}}" class='content-img' bindtap="voView" data-whId="{{index}}"></image>
+  </view>
   </view>
 </view>

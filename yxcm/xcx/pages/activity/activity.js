@@ -3,11 +3,18 @@ Page({
   data: {
     list: []
   },
-  toView(item) {
-    console.log(item)
-    // wx.navigateTo({
-    //   url: "/pages/activity/detail/detail?id=1"
-    // })
+  toView(event) {
+    let index = event.currentTarget.dataset.activityid;
+    console.log(event)
+    const item = this.data.list[index];
+    try {
+        wx.setStorageSync('activity', item);
+        wx.navigateTo({
+          url: `/pages/activity/detail/detail?${index}`
+        })
+    } catch (e) {
+
+    }
   },
   queryActivit() {
     const self = this;

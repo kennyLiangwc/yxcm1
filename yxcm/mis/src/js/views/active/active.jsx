@@ -1,10 +1,44 @@
 import React, { Component } from "react"
 import BreadCrumb from "../../components/breadcrumb/BreadcrumbCustom"
-import { Card, Table, Button, Popconfirm, message } from "antd"
+import { Card, Table, Button, Popconfirm, message, Form, Input } from "antd"
 import { withRouter } from "react-router-dom"
 import util from "../../../utils/util"
 import http from "../../../utils/http"
 import ClickShowImg from "../../components/clickShowImg/clickShowImg"
+
+const FormItem = Form.Item;
+
+const ActiveForm = Form.create()(class activeF extends Component {
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.form.validateFields((err, values) => {
+            if (!err) {
+                this.props.query(values.name)
+            }
+        });
+    }
+    render() {
+        const { getFieldDecorator } = this.props.form;
+        return(
+            <Form
+            layout="inline"
+            onSubmit={this.handleSubmit}
+            >
+                <FormItem
+                    label="活动名称"
+                >
+                    {
+                        getFieldDecorator('name')(<Input placeholder="请输入活动标题"/>)
+                    }
+                </FormItem>
+                <FormItem>
+                    <Button type="primary" htmlType="submit">搜索</Button>
+                </FormItem>
+            </Form>
+        )
+    }
+})
+
 class Active extends Component {
 	state = {
 		list: []
@@ -12,6 +46,11 @@ class Active extends Component {
 	 componentDidMount() {
 		this.queryActive()
 	}
+    query = (data) => {
+        if(data) {
+            
+        }
+    }
     queryActive() {
         const { pageNumber, pageSize } = this.page;
         http.post("api/activity/",{
@@ -106,6 +145,7 @@ class Active extends Component {
         ]
 		return <div>
 			<BreadCrumb first="活动列表"/>
+            <ActiveForm query={this.query}/>
 			<Card>
 				<Table pagination={pagination} dataSource={list} columns={columns} rowKey="id"/>
 			</Card>
