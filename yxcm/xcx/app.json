@@ -29,8 +29,7 @@
       },
       {
         "pagePath": "pages/red/red",
-        "text": "网络达人",
-        "selectedIconPath": "img/douban_32.png"
+        "text": "网络达人"
       }
     ]
   }

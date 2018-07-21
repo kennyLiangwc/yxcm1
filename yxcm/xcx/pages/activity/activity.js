@@ -18,6 +18,9 @@ Page({
   },
   queryActivit() {
     const self = this;
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
       url: 'https://qydata.club/yxserver/api/activity/',
       data: {
@@ -28,6 +31,7 @@ Page({
         'content-type': 'application/json'
       },
       success(res) {
+        wx.hideLoading()
         self.setData({
           list: res.data.data.activitys
         })

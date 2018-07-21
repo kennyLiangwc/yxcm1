@@ -1,4 +1,4 @@
 <!--index.wxml-->
-<view class="page">
-<image src="../../../img/二维码.png"></image>
+<view class="page" style="position: relative">
+  <image src="../../../img/二维码.png" style="position: absolute;left: 50%;top: 50%;margin-left: -350rpx"></image>
 </view>

@@ -1,4 +1,5 @@
 // pages/logs/logs.js
+const { getFansNum } = require('../../utils/util.js');
 Page({
 
   /**
@@ -7,10 +8,8 @@ Page({
   data: {
     list: [],
     selIndex: 0,
-    fanIndex: 0,
-    platform: 0,
-    start_fans_num: 0,
-    end_fans_num: 10000000
+    fanIndex: 1,
+    platform: 0
   },
 
   /**
@@ -37,18 +36,25 @@ Page({
     this.setData({
       fanIndex: index
     });
-    
+    this.query()
   },
   query() {
     const self = this;
-    const { platform} = this.data;
+    const { platform, fanIndex } = this.data;
+    const { start_fans_num, end_fans_num } = getFansNum(fanIndex);
+    const params = {
+      "page": 1,
+      "page_size": 20,
+      "platform": platform,
+      start_fans_num,
+      end_fans_num
+    }
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
       url: 'https://qydata.club/yxserver/api/anchor/',
-      data: {
-        "page": 1,
-        "page_size": 20,
-        platform: platform
-      },
+      data: params,
       header: {
         'content-type': 'application/json' // 默认值
       },
@@ -57,6 +63,7 @@ Page({
         self.setData({
           list: whList
         })
+        wx.hideLoading()
       }
     })
   },
@@ -85,7 +92,7 @@ Page({
   onShow: function () {
 
   },
-
+ 
   /**
    * 生命周期函数--监听页面隐藏
    */

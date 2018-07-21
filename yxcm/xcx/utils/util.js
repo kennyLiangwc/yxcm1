@@ -14,6 +14,39 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
-module.exports = {
-  formatTime: formatTime
+exports.getFansNum = function(value) {
+  return (
+    {
+      1: {
+        label: {
+          start_fans_num: "0",
+          end_fans_num: "100000"
+        }
+      },
+      2: {
+        label: {
+          start_fans_num: "100000",
+          end_fans_num: "200000"
+        }
+      },
+      3: {
+        label: {
+          start_fans_num: "200000",
+          end_fans_num: "500000"
+        }
+      },
+      4: {
+        label: {
+          start_fans_num: "500000",
+          end_fans_num: "1000000"
+        }
+      },
+      5: {
+        label: {
+          start_fans_num: "1000000",
+          end_fans_num: "100000000"
+        }
+      }
+    }[value] || {}
+  ).label || '--'
 }
