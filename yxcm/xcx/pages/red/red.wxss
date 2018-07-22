@@ -1,5 +1,5 @@
 /* pages/logs/logs.wxss */
-.section { padding: 3% 3% 0 3%;}
+.section { padding: 3% 3% 0 3%;background-color: #FFFF66}
 .flex-wrp {display: flex;}
 .flex-item { text-align: center;width:25%;height: 190rpx;box-sizing: border-box;line-height: 60rpx;}
 .icon-text { border-right: 1rpx solid #ccc;font-size: 28rpx;height: 54rpx;}

@@ -14,19 +14,19 @@
   </view>
   <view class="brief-info" bindtap="goWecode">
     <view class="content">
-      <image class="pic" src="../../img/二维码.png" />
+      <image class="pic" src="../../img/二维码.png" style="width: 14%"/>
       <view class="txt">扫一扫，直接聊</view>
     </view>
   </view>
   <view class="brief-info" bindtap="callPhone">
     <view class="content">
-      <image class="pic" src="../../img/tel.png" />
+      <image class="pic" src="../../img/tel.png" style="width: 14%"/>
       <view class="txt">020-86460283</view>
     </view>
   </view>
   <view class="brief-info" bindtap="goAddress">
     <view class="content">
-      <image class="pic" src="../../img/add.png" />
+      <image class="pic" src="../../img/add.png" style="width: 14%"/>
       <view class="txt">广州市天河区晨邮路12号华景里理想地</view>
     </view>
   </view>
