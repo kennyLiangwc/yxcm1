@@ -3,8 +3,8 @@
     <image src='{{whDetail.imgs_url[0]}}' style='width: 100%;' ></image>
     <view>
       <text style='display: block'>{{whDetail.name}}</text>
-      <text space="true" decode="true" style="text-indent: 2rpx;padding: 2% 0">{{whDetail.intro}} </text>
-      <text style='display: block'>达人直播实况：</text>
+      <text space="true" decode="true" style="text-indent: 2rpx;padding: 2% 0; font-size: 30rpx">{{whDetail.intro}} </text>
+      <text style='display: block;'>达人直播实况：</text>
       <video src="{{whDetail.video_url}}" autoplay="true"></video>
       <image src="{{whDetail.imgs_url[1]}}"></image>
     </view>
