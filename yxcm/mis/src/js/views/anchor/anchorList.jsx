@@ -16,7 +16,7 @@ const AnchorForm = Form.create()(class a extends Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log(values)
+                this.props.query(values)
             }
         });
     }
@@ -79,6 +79,7 @@ class AnchorList extends Component {
 	}
     queryAnchorList() {
         const { pageNumber, pageSize } = this.page;
+        console.log("queryData",this.queryData)
         http.post("api/anchor/",{
             page: pageNumber,
 			page_size: pageSize
@@ -93,6 +94,11 @@ class AnchorList extends Component {
         pageNumber: 1,
         pageSize: 10,
         total: 0
+    }
+    queryData = null;
+    query = (data) => {
+        this.queryData = data;
+        this.queryAnchorList()
     }
     del = (item) => {
         http.post("back/anchor/update/",{
@@ -184,7 +190,7 @@ class AnchorList extends Component {
         ]
 		return <div>
             <BreadcrumbCustom first="网红列表"/>
-            <AnchorForm />
+            <AnchorForm query={this.query}/>
             <Card>
                 <Table pagination={pagination} dataSource={list} columns={columns} rowKey="id"/>
             </Card>
